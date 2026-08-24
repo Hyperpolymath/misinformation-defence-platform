@@ -1,101 +1,54 @@
-= RSR template repo - see RSR_OUTLINE.adoc in root for general background and specification
+image:https://img.shields.io/badge/License-MPL–2.0-blue.svg[License:
+PMPL-1.0,link="`https://github.com/hyperpolymath/palimpsest-license`"]
 
-== This is your repo - don't forget to rename me!
+== Defensive Multiplicity Framework
 
-== ABI/FFI Standards (Hyperpolymath Universal Standard)
+image:https://img.shields.io/badge/Philosophy-Palimpsest-indigo.svg[Palimpsest,link="`https://github.com/hyperpolymath/palimpsest-license`"]
 
-**All repos with foreign function interfaces MUST follow this standard:**
+=== Overview
 
-* **ABI (Application Binary Interface)** → **Idris2** (`src/abi/*.idr`)
-** Type definitions with dependent type proofs
-** Memory layout verification
-** Platform-specific ABIs with compile-time selection
-** Formal verification of interface correctness
+This repository contains the theoretical framework, implementation
+guidelines, and governance structures for Defensive Multiplicity - a
+paradigm shift in digital privacy that achieves security through
+controlled identity proliferation rather than concealment.
 
-* **FFI (Foreign Function Interface)** → **Zig** (`ffi/zig/src/*.zig`)
-** C-compatible function implementations
-** Zero-cost abstractions
-** Memory-safe by default
-** Cross-compilation support
+=== Structure
 
-* **Generated C Headers** → Auto-generated from Idris2 ABI (`generated/abi/*.h`)
-** Bridge between Idris2 and Zig
-** Consumed by any language via C ABI
+DefensiveMultiplicity-Framework/ ├── docs/ # Theoretical foundations ├──
+implementations/ # Practical toolkits ├── research/ # Threat analysis
+├── governance/ # Ethical oversight └── tech/ # Core systems
 
-**Directory Structure:**
-----
-project/
-├── src/abi/          # Idris2 ABI definitions (REQUIRED)
-├── ffi/zig/          # Zig FFI implementation (REQUIRED)
-├── generated/abi/    # Auto-generated C headers
-└── bindings/         # Language-specific wrappers (optional)
-----
+=== Key Components
 
-**See:** `ABI-FFI-README.md` for complete documentation
+[arabic]
+. *Whitepaper*: Theoretical foundation in `+docs/WHITEPAPER.md+`
+. *Ethics Charter*: Wittgensteinian rules of engagement in
+`+docs/ETHICS_CHARTER.md+`
+. *Implementation Kits*: Ready-to-use systems in `+implementations/+`
+. *Governance Framework*: Oversight protocols in `+governance/+`
 
-== AI CLI standards
+=== Getting Started
 
-- Include `ai-cli-crash-capture/` and `contractiles/` from this template in new repos.
-- Mirror 6SCM files into `.machine_readable/` (NOT `.machine_readable/6scm/`).
-- Before any code generation, check `/var$REPOS_DIR/proven` for the current Idris "unbreakable" library status.
-- If a project uses that Idris library, add an *Idris Inside* badge to the repo.
-- If new bindings are required, add them in `/var$REPOS_DIR/proven` as `idris2-zig-<language>` during the work.
-- If new code suggests additional "unbreakable" Idris modules, add them under `/var$REPOS_DIR/proven` and update binders across all supported languages.
+[arabic]
+. Review the whitepaper and ethics charter
+. Select the appropriate implementation kit for your use case
+. Follow the governance protocols for ethical deployment
 
-== Standard Dependencies
+=== License
 
-=== Web Projects
+This work is licensed under the Palimpsest License - a custom license
+designed for ethical defensive technologies that: - Permits use for
+protective purposes - Prohibits weaponization - Requires ethical
+compliance - Mandates transparency about synthetic elements
 
-ReScript web projects in the hyperpolymath ecosystem **MUST** use these formally verified components:
+=== Contributing
 
-[cols="1,2,1"]
-|===
-|Library |Purpose |Status
+Contributions are welcome but must: 1. Align with the ethical charter 2.
+Pass governance review 3. Include transparency documentation
 
-|link:https://github.com/hyperpolymath/rescript-dom-mounter[rescript-dom-mounter]
-|Formally verified DOM mounting
-|**REQUIRED**
+=== Warning
 
-|link:https://github.com/hyperpolymath/rescript-tea[rescript-tea]
-|TEA architecture framework
-|Recommended
-
-|link:https://github.com/hyperpolymath/cadre-tea-router[cadre-tea-router]
-|Proven-safe URL routing
-|Recommended
-
-|link:https://github.com/hyperpolymath/proven[proven]
-|Idris2 formally verified library
-|Core Dependency
-|===
-
-==== Why SafeDOM is Required
-
-Traditional DOM mounting can fail:
-
-[source,javascript]
-----
-// ❌ UNSAFE: Can crash with null pointer
-const el = document.getElementById('app')
-el.innerHTML = html  // 💥
-----
-
-SafeDOM provides **compile-time proofs** that DOM operations cannot fail:
-
-[source,rescript]
-----
-// ✅ PROVEN SAFE: Mathematically guaranteed
-SafeDOM.mountSafe("#app", html,
-  ~onSuccess=el => Console.log("Success"),
-  ~onError=err => Console.error(err))
-----
-
-**Mathematical Guarantees:**
-
-✓ No null pointer dereferences (Idris2 proof)
-✓ No invalid CSS selectors (dependent types)
-✓ No malformed HTML (balanced tag checking)
-✓ Type-safe operations (ReScript + Idris2)
-✓ Zero runtime overhead (proofs erased)
-
-See link:https://github.com/hyperpolymath/rescript-dom-mounter[rescript-dom-mounter documentation] for full details.
+This repository contains dual-use technology. By accessing these
+materials, you agree to: 1. Never use these tools for harassment or
+fraud 2. Disclose any vulnerabilities responsibly 3. Accept that
+defensive systems may be weaponized
